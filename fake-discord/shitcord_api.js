@@ -45,7 +45,7 @@ function User(id, username, discriminator, avatarURLBase, animated, status, abou
 User.prototype.avatarURL = function(mode, size = 128) {
 	return this.avatarURLBase != "" ?
 	("https://cdn.discordapp.com/avatars/" + this.avatarURLBase + (this.animated && mode == ProfilePictureMode.Gif ? ".gif" : ".webp") + "?size=" + size)
-		: "https://canary.discord.com/assets/1f0bfc0865d324c2587920a7d80c609b.png";
+		: "/fake-discord/assets/avatar_default_icon.png";
 }
 
 // SUB USER.UTILS
@@ -69,7 +69,7 @@ function Guild(id, displayName, icon) {
 Guild.prototype.avatarURL = function(mode, size = 128) {
 	return this.avatarURLBase != "" ?
 	("https://cdn.discordapp.com/icons/" + this.icon + ".webp?size=" + size)
-		: "https://canary.discord.com/assets/1f0bfc0865d324c2587920a7d80c609b.png";
+		: "/fake-discord/assets/avatar_default_icon.png";
 }
 
 window.getGuild = function(id) {
