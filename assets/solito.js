@@ -165,8 +165,6 @@ Solito.createSlider = function(min, max, value, onChange) {
 		// Reposition the tooltip
 		tooltip.style.left = e.clientX - tooltip.clientWidth / 2 + thumb.clientWidth / 2;
 		tooltip.style.top = root.getBoundingClientRect().top + thumb.clientHeight;
-
-
 	});
 
 	const sliderDragFunc = (function(e) {

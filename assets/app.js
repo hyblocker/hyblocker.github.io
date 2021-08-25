@@ -66,6 +66,7 @@ injectTheme = function injectTheme(themeCss, id = "theme-current") {
 window.addEventListener('load', function() {
 	// JS is working, tell the DOM
 	document.body.classList.remove("nojs");
+	optimizeRebuildRate();
 
 	// No theme selected, default to 0 for now, later go to theme picker
 	selectedId = 0;
@@ -262,9 +263,7 @@ function buildPropertyEditor(prop) {
 
 			prop.value = prop.defaultValue;
 			const slider = Solito.createSlider(min, max, prop.value, function(e) {
-				//console.log(`callback, got ${e}!`);
 				prop.value = e.toFixed(2) + unit;
-				console.log(prop.value);
 				buildCss();
 			});
 
@@ -394,7 +393,7 @@ function parseColorToString(c) {
 const cssVarSelector = /#{([^;]*)}/g;
 let lastEdit;
 
-const cssRebuildsInASecond = Math.floor(1000 / 15);
+let cssRebuildsInASecond = Math.floor(1000 / 15);
 let lastRebuild = Date.now();
 
 function buildCss() {
@@ -499,4 +498,26 @@ function buildCss() {
 	lastRebuild = currTime;
 	
 	return css;
+}
+
+const optimizeRebuildRate = function() {
+	const _speedconstant = 8.9997e-9; //if speed=(c*a)/t, then constant=(s*t)/a and time=(a*c)/s
+	const d = new Date();
+	const amount = 150000000;
+	
+	for (let i = amount; i > 0; i--) {}
+	
+	const newd = new Date();
+	const accnewd = Number(String(newd.getSeconds()) + "." + String(newd.getMilliseconds()));
+	const accd = Number(String(d.getSeconds()) + "." + String(d.getMilliseconds())); 
+	let di = accnewd - accd;
+	// console.log(accnewd, accd, di);
+	if (d.getMinutes() != newd.getMinutes()) {
+		di = (60 * (newd.getMinutes() - d.getMinutes())) + di;
+	}
+	spd = (_speedconstant * amount ) / di;
+	const speedMetric = Math.abs(Math.round(spd * 1000) / 1000);
+	// console.log(`Time: ${ Math.round(di * 1000) / 1000 }s, estimated speed: ${ speedMetric }GHz`);
+	
+	cssRebuildsInASecond = Math.round(speedMetric / 4);
 }
