@@ -1,0 +1,53 @@
+<html>
+	<head>
+		<title>No Theme | Theme Editor</title>
+		<link href="/assets/main.css" rel="preload" as="style" onload="this.onload=null;this.rel='stylesheet'">
+		<noscript><link rel="stylesheet" href="/assets/main.css"></noscript>
+
+		<link rel="preconnect" href="https://fonts.googleapis.com">
+		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+		<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&family=Lexend+Deca&family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+
+		<script type="text/javascript" src="/assets/solito.js"></script>
+		<script type="text/javascript" src="/assets/api.js"></script>
+		<script type="text/javascript" src="/assets/app.js"></script>
+		<script type="text/javascript" src="/assets/acolorpicker.min.js"></script>
+		
+    	<script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.2.2/jszip.min.js" integrity="sha256-gy5W5/rXWluWXFRvMWFFMVhocfpBe7Tf4SW2WMfjs4E=" crossorigin="anonymous"></script>
+    	<script src="https://cdnjs.cloudflare.com/ajax/libs/FileSaver.js/1.3.8/FileSaver.min.js" integrity="sha256-FPJJt8nA+xL4RU6/gsriA8p8xAeLGatoyTjldvQKGdE=" crossorigin="anonymous"></script>
+	</head>
+	<body class="nojs theme-light">
+		<noscript>This app requires Javascript to work.</noscript>
+		<div class="app">
+			<div class="header">
+				<h2 class="appName">Hyblocker's Theme Editor</h2>
+				<a class="githubRepo" href="https://www.github.com/hyblocker/theme-editor/">
+					<img src="/assets/img/github.svg" alt="GitHub"/>
+				</a>
+			</div>
+			<div class="appRoot">
+				<div class="sidebar">
+					<h1 class="themeName">No Theme</h1>
+					<hr>
+					<div class="scroller">
+						<section class="downloader">
+							<span class="title important">Download</span>
+							<div class="container">
+								<button class="button lookFilled hasIcon">
+									<svg xmlns="http://www.w3.org/2000/svg" width="128" viewBox="0 0 447 447"><path fill="currentColor" d="M182.5 78.6l70-70c11.9-11.9 31.2-11.9 43.1 0s11.9 31.2 0 43.1l-70 70zm91.7 91.7l70-70c11.9-11.9 31.2-11.9 43.1 0s11.9 31.2 0 43.1l-70 70zM303 257L138.9 92.9c-2.7-2.7-2.7-7 0-9.7L163 59.1c2.7-2.7 7-2.7 9.7 0l164.1 164.1c2.7 2.7 2.7 7 0 9.7L312.7 257c-2.7 2.7-7 2.7-9.7 0zm-146.6 75.4l-92.9-92.9c-17-17-17-44.6 0-61.6l85.1-85.1L303 247.4l-85 85c-17 17-44.7 17-61.6 0zm-61-2.9l-29-29c-2.7-2.7-2.7-7 0-9.7l29-29 38.7 38.7-29 29c-2.7 2.6-7 2.6-9.7 0zm48.3 115.8L81 382.6c-21.3-21.3-21.3-55.9 0-77.2l9.7 9.7c-16 16-16 42 0 57.9l62.8 62.8c2.7 2.7 2.7 7 0 9.7s-7.1 2.5-9.8-.2z"/></svg>
+									<span class="buttonTitle">Powercord</span>
+								</button>
+								<button class="button lookFilled hasIcon">
+									<svg xmlns="http://www.w3.org/2000/svg" width="128" viewBox="0 0 2000 2000"><path fill="currentColor" d="M1402.2 631.7c-9.7-353.4-286.2-496-642.6-496H68.4v714.1l442 398V490.7h257c274.5 0 274.5 344.9 0 344.9H597.6v329.5h169.8c274.5 0 274.5 344.8 0 344.8h-699v354.9h691.2c356.3 0 632.8-142.6 642.6-496 0-162.6-44.5-284.1-122.9-368.6 78.4-84.4 122.9-205.9 122.9-368.5zm-139.7-496.5h-76.8c26.6 13.3 51.7 28.1 75 44.3 70.7 49.1 126.1 111.5 164.6 185.3 39.9 76.6 61.5 165.6 64.3 264.6v741.9c-2.7 99-24.3 188-64.3 264.6-38.5 73.8-93.8 136.2-164.6 185.3-22.6 15.7-46.9 30.1-72.6 43.1h72.5c346.2 1.9 671-171.2 671-567.9V716.7c1.9-404.5-322.9-581.5-669.1-581.5z"/></svg>
+									<span class="buttonTitle">Better Discord</span>
+								</button>
+							</div>
+						</section>
+					</div>
+				</div>
+				<div class="preview"></div>
+			</div>
+		</div>
+		<div class="layersContainer"></div>
+	</body>
+</html>

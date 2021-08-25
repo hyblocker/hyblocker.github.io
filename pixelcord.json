@@ -1,0 +1,210 @@
+{
+	"file": "index.css",
+	"splash": "https://hyblocker.github.io/pixelcord/splash.css",
+	"manifest": {
+		"name": "Pixelcord",
+		"description": "Material Design Theme with numerous enhancements for Discord",
+		"author": "Hyblocker",
+		"version": "3.3.0",
+		"license": "GPL-2"
+	},
+	"categories": {
+		"Core": [
+			{
+				"id": "accent_dark",
+				"name": "Accent Color (Dark Mode)",
+				"description": "The most dominant color in the theme",
+				"defaultValue": "#34A4FF",
+				"type": "color",
+				"prop": "--accent",
+				"selector": ".callContainer-36WRfH,\n.theme-dark"
+			},
+			{
+				"id": "accent_select_dark",
+				"hidden": true,
+				"autoCalc": "rgba(#{--accent}, 12%)",
+				"type": "color",
+				"prop": "--accent-selected-highlight",
+				"selector": ".callContainer-36WRfH,\n.theme-dark",
+				"dependsOn": [ "accent_dark" ]
+			},
+			{
+				"id": "accent_text_dark",
+				"hidden": true,
+				"func": "contrastingColor(#{--accent})",
+				"type": "color",
+				"prop": "--accent-text",
+				"selector": ".callContainer-36WRfH,\n.theme-dark",
+				"dependsOn": [ "accent_dark" ]
+			}
+		],
+		"Status Colors": [
+			{
+				"id": "accent_dark",
+				"name": "Accent Color (Dark Mode)",
+				"description": "The most dominant color in the theme",
+				"defaultValue": "#34A4FF",
+				"type": "color",
+				"prop": "--accent",
+				"selector": ".callContainer-36WRfH,\n.theme-dark"
+			},
+			{
+				"id": "accent_select_dark",
+				"hidden": true,
+				"autoCalc": "rgba(#{--accent}, 12%)",
+				"type": "color",
+				"prop": "--accent-selected-highlight",
+				"selector": ".callContainer-36WRfH,\n.theme-dark",
+				"dependsOn": [ "accent_dark" ]
+			},
+			{
+				"id": "accent_text_dark",
+				"hidden": true,
+				"func": "contrastingColor(#{--accent})",
+				"type": "color",
+				"prop": "--accent-text",
+				"selector": ".callContainer-36WRfH,\n.theme-dark",
+				"dependsOn": [ "accent_dark" ]
+			}
+		],
+		"Functions": [
+			{
+				"name": "Collapsing Channel List",
+				"description": "Channels list collapses and uncollapses on hover, giving you more room to read",
+				"defaultValue": false,
+				"type": "import",
+				"url": "https://hyblocker.github.io/pixelcord/modules/functions/hover_channels.css"
+			},
+			{
+				"name": "Collapsing Members List",
+				"description": "Members list collapses and uncollapses on hover, giving you more room to read",
+				"defaultValue": false,
+				"type": "import",
+				"url": "https://hyblocker.github.io/pixelcord/modules/functions/hover_members.css"
+			},
+			{
+				"name": "macOS Buttons",
+				"description": "Replaces window buttons with macOS style buttons (Windows)",
+				"defaultValue": false,
+				"type": "import",
+				"url": "https://hyblocker.github.io/pixelcord/modules/functions/macos_buttons.css"
+			},
+			{
+				"name": "Channel Icons",
+				"description": "Make channels change icon based on what they're called! (eg #github would have a github icon instead of #)",
+				"defaultValue": false,
+				"type": "import",
+				"url": "https://hyblocker.github.io/pixelcord/modules/functions/channel_icons.css"
+			}
+		],
+		"Enhancements": [
+			{
+				"name": "Modal Blur",
+				"description": "Blurs the black tinted background behind modals like image previews if enabled",
+				"defaultValue": false,
+				"type": "import",
+				"url": "https://hyblocker.github.io/pixelcord/modules/enhancements/background_blur.css"
+			},
+			{
+				"name": "Rounded Corners",
+				"description": "Adds rounded corners to the Discord window",
+				"defaultValue": false,
+				"glasscord": "required",
+				"type": "import",
+				"url": "https://hyblocker.github.io/pixelcord/modules/enhancements/rounded_corners.css"
+			}
+		],
+		"Transparency": [
+			{
+				"id": "transparency",
+				"name": "Translucent",
+				"description": "Makes discord transparent",
+				"defaultValue": false,
+				"glasscord": "recommended",
+				"type": "import",
+				"url": "https://hyblocker.github.io/pixelcord/modules/enhancements/translucent.css"
+			},
+			{
+				"id": "blur-strength",
+				"name": "Blur Strength",
+				"description": "How strong the background is to be blurred",
+				"type": "float",
+				"defaultValue": "4",
+				"min": "0",
+				"max": "16",
+				"unit": "px",
+				"prop": "--blur-strength:",
+				"selector": ".callContainer-36WRfH,\n.theme-dark",
+				"dependsOn": [ "transparency" ]
+			}
+		],
+		"Add-Ons": [
+			{
+				"name": "Discolored",
+				"description": "Colorize boring discord SVGs!",
+				"defaultValue": true,
+				"type": "import",
+				"url": "https://nyri4.github.io/Discolored/main.css"
+			},
+			{
+				"name": "Replace Emojis",
+				"description": "Replaces Twemoji with different emojis from a different platform",
+				"defaultValue": 2,
+				"type": "import",
+				"dropdown": [
+					{
+						"text": "Apple",
+						"url": "https://mwittrien.github.io/BetterDiscordAddons/Themes/EmojiReplace/base/Apple.css"
+					},
+					{
+						"text": "Facebook",
+						"url": "https://mwittrien.github.io/BetterDiscordAddons/Themes/EmojiReplace/base/Facebook.css"
+					},
+					{
+						"text": "Google",
+						"url": "https://mwittrien.github.io/BetterDiscordAddons/Themes/EmojiReplace/base/Google.css"
+					},
+					{
+						"text": "JoyPixels",
+						"url": "https://mwittrien.github.io/BetterDiscordAddons/Themes/EmojiReplace/base/JoyPixels.css"
+					},
+					{
+						"text": "Microsoft",
+						"url": "https://mwittrien.github.io/BetterDiscordAddons/Themes/EmojiReplace/base/Microsoft.css"
+					},
+					{
+						"text": "Samsung",
+						"url": "https://mwittrien.github.io/BetterDiscordAddons/Themes/EmojiReplace/base/Samsung.css"
+					},
+					{
+						"text": "WhatsApp",
+						"url": "https://mwittrien.github.io/BetterDiscordAddons/Themes/EmojiReplace/base/WhatsApp.css"
+					},
+					{
+						"text": "OpenMoji",
+						"url": "https://mwittrien.github.io/BetterDiscordAddons/Themes/EmojiReplace/base/OpenMoji.css"
+					}
+				]
+			},
+			{
+				"name": "Better Badges",
+				"description": "Makes badges cooler",
+				"defaultValue": 0,
+				"type": "import",
+				"dropdown": [
+					{
+						"text": "Colored Badges",
+						"url": "https://mr-miner1.github.io/Better-Badges/src/badges.css"
+					},
+					{
+						"text": "White Badges",
+						"url": "https://mr-miner1.github.io/Better-Badges/src/whitebadges.css"
+					}
+				]
+			}
+		]
+	},
+	"requiredImports": "\n/*\nDO NOT REMOVE\n*/\n@import url(https://hyblocker.github.io/pixelcord/dist.css);\n ",
+	"_comment0": "This is the extra global CSS that the theme requires to function properly, eg: :root {}, the theme itself, etc.",
+	"requiredCSS": ""
+}
