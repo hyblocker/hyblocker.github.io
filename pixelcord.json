@@ -133,7 +133,7 @@
 				"min": "0",
 				"max": "16",
 				"unit": "px",
-				"prop": "--blur-strength:",
+				"prop": "--blur-strength",
 				"selector": ".callContainer-36WRfH,\n.theme-dark",
 				"dependsOn": [ "transparency" ]
 			}

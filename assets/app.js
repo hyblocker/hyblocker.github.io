@@ -265,6 +265,7 @@ function buildPropertyEditor(prop) {
 				//console.log(`callback, got ${e}!`);
 				prop.value = e.toFixed(2) + unit;
 				console.log(prop.value);
+				buildCss();
 			});
 
 
@@ -436,6 +437,14 @@ function buildCss() {
 					imports += `\n/* ${currCategoryName} | ${themeProp.name} - ${themeProp.description} */\n${cssImportRule}\n`;
 					break;
 				case "color":
+					if (!themeProp.selector)
+						themeProp.selector = ":root"
+					if (!cssRules[themeProp.selector])
+						cssRules[themeProp.selector] = {};
+					cssRules[themeProp.selector][themeProp.prop] = themeProp;
+					ids[themeProp.id] = themeProp;
+					break;
+				case "float":
 					if (!themeProp.selector)
 						themeProp.selector = ":root"
 					if (!cssRules[themeProp.selector])
