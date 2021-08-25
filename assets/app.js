@@ -111,6 +111,18 @@ window.addEventListener('load', function() {
 			buildCss();
 		});
 
+		// Add zoom slider
+		let zoom = 1;
+		const zoomSlider = Solito.createSlider(0.5, 2, zoom, function(e) {
+			zoom = e.toFixed(1);
+			injectTheme(`html { transform-origin: 0 0; transform: scale(${zoom}); width: calc(100% / ${zoom}); height: calc(100% / ${zoom}); }`, "zoom-control");
+		}, 1);
+		// Icon
+		const magnifyingGlass = Solito.createElement("img", ["icon", "zoom"], {src: "/assets/img/zoom.svg"});
+		// Shove into DOM
+		document.getElementsByClassName("header")[0].appendChild(magnifyingGlass);
+		document.getElementsByClassName("header")[0].appendChild(Solito.createElement("div", ["sliderContainer", "zoomSlider"], null, null, zoomSlider));
+
 		const somePromise = new Promise((resolve, reject) => {
 			setTimeout(null, 10000);
 		}).then(
@@ -215,7 +227,12 @@ function buildPropertyEditor(prop) {
 				const layer = createLayer(["colorPickerPopout"]);
 				layer.setAttribute("acp-color", prop.value);
 				layer.style.position = "absolute";
-				layer.style.top = e.clientY;
+
+				let topPosition = e.clientY;
+				if (topPosition + 350 > window.innerHeight)
+					topPosition = window.innerHeight - 350 - 8; // 8 px extra padding
+				layer.style.top = clamp(topPosition, 0, window.innerHeight);
+
 				layer.style.left = e.clientX + 8;
 				_this.layerContainer.classList.add("receiveClicks");
 				AColorPicker.from('.layer.colorPickerPopout')

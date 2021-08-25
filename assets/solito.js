@@ -120,8 +120,9 @@ Solito.createDropdown = function(value, dropdown, onDropdown, onChange) {
 	}), previewElem);
 }
 
-Solito.createSlider = function(min, max, value, onChange) {
+Solito.createSlider = function(min, max, value, onChange, floatingDigits) {
 	
+	floatingDigits = floatingDigits === undefined ? 2 : floatingDigits;
 	let sliderProgress, thumb, root;
 	let dragging = false;
 
@@ -155,12 +156,12 @@ Solito.createSlider = function(min, max, value, onChange) {
 		
 		// Update visual UI
 		const uiPercentage = clamp(percentage * root.clientWidth, 1, root.clientWidth - thumb.clientWidth - 1);
-		sliderProgress.style.width = `${uiPercentage}px`;
+		sliderProgress.style.width = `${clamp(uiPercentage + thumb.clientWidth / 2, 0, root.clientWidth)}px`;
 		thumb.style.left = `${uiPercentage}px`;
 		if (onChange) onChange(value);
 		
 		// Update tooltip text
-		tooltip.innerText = +(value).toFixed(2);
+		tooltip.innerText = +(value).toFixed(floatingDigits);
 
 		// Reposition the tooltip
 		tooltip.style.left = e.clientX - tooltip.clientWidth / 2 + thumb.clientWidth / 2;
@@ -201,7 +202,7 @@ Solito.createSlider = function(min, max, value, onChange) {
 
 	// Initial value
 	let distFromLeft = (value - min) / (max - min) * 100.0;
-	sliderProgress.style.width = `${distFromLeft}%`;
+	sliderProgress.style.width = `${distFromLeft + 1}%`;
 	thumb.style.left = `${distFromLeft}%`;
 	
 	return root;

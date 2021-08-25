@@ -36,35 +36,52 @@
 				"prop": "--accent-text",
 				"selector": ".callContainer-36WRfH,\n.theme-dark",
 				"dependsOn": [ "accent_dark" ]
-			}
-		],
-		"Status Colors": [
+			},
+
 			{
-				"id": "accent_dark",
-				"name": "Accent Color (Dark Mode)",
-				"description": "The most dominant color in the theme",
-				"defaultValue": "#34A4FF",
+				"id": "online",
+				"name": "Good (Dark Mode)",
+				"description": "Online status, and green buttons (eg buy Nitro)",
+				"defaultValue": "#66c296",
 				"type": "color",
-				"prop": "--accent",
+				"prop": "--online",
 				"selector": ".callContainer-36WRfH,\n.theme-dark"
 			},
 			{
-				"id": "accent_select_dark",
-				"hidden": true,
-				"autoCalc": "rgba(#{--accent}, 12%)",
+				"id": "idle",
+				"name": "Warning (Dark Mode)",
+				"description": "Idle, and yellow buttons",
+				"defaultValue": "#fbec52",
 				"type": "color",
-				"prop": "--accent-selected-highlight",
-				"selector": ".callContainer-36WRfH,\n.theme-dark",
-				"dependsOn": [ "accent_dark" ]
+				"prop": "--idle",
+				"selector": ".callContainer-36WRfH,\n.theme-dark"
 			},
 			{
-				"id": "accent_text_dark",
-				"hidden": true,
-				"func": "contrastingColor(#{--accent})",
+				"id": "dnd",
+				"name": "Danger (Dark Mode)",
+				"description": "Do not disturb, and red buttons",
+				"defaultValue": "#CF6679",
 				"type": "color",
-				"prop": "--accent-text",
-				"selector": ".callContainer-36WRfH,\n.theme-dark",
-				"dependsOn": [ "accent_dark" ]
+				"prop": "--danger",
+				"selector": ".callContainer-36WRfH,\n.theme-dark"
+			},
+			{
+				"id": "offline",
+				"name": "Grey (Dark Mode)",
+				"description": "Offline, and grey buttons",
+				"defaultValue": "#868d96",
+				"type": "color",
+				"prop": "--offline",
+				"selector": ".callContainer-36WRfH,\n.theme-dark"
+			},
+			{
+				"id": "streaming",
+				"name": "Purple (Dark Mode)",
+				"description": "Streaming, and purple backgrounds",
+				"defaultValue": "#9176c1",
+				"type": "color",
+				"prop": "--stream",
+				"selector": ".callContainer-36WRfH,\n.theme-dark"
 			}
 		],
 		"Functions": [

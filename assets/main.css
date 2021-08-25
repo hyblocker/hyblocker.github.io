@@ -15,6 +15,9 @@
 	--button-appealing: #65c094;
 	--button-appealing-highlight: rgb(64, 185, 127);
 	--button-appealing-text: white;
+	--slider-progress: rgb(255 32 107 / 72%);
+	--slider-bg: #525252;
+	--slider-thumb: #cfcfcf;
 
 	background-color: #000;
 }
@@ -35,6 +38,9 @@
 	--button-appealing: #43b581;
 	--button-appealing-highlight: #53da9d;
 	--button-appealing-text: white;
+	--slider-progress: rgb(255 32 107 / 72%);
+	--slider-bg: #e0e0e0;
+	--slider-thumb: #ececec;
 }
 :root {
 	--card-separation: 16px;
@@ -122,6 +128,15 @@ hr {
 	position: absolute;
 	width: 1.75rem;
 	height: 1.75rem;
+	top: calc(1rem - 4px)
+}
+.app > .header .icon {
+	position: absolute;
+	top: calc(1rem - 2px);
+	right: calc(12% + 72px);
+}
+.icon.zoom {
+	filter: invert(100%);
 }
 .appRoot>.sidebar {
 	height: calc(100% - 28px);
@@ -355,10 +370,12 @@ hr {
 	content: "";
 	width: 20px;
 	height: 20px;
-	background-image: url(/assets/img/chevron.svg);
-	background-position: center;
-	background-size: 24px;
-	background-repeat: no-repeat;
+	background-color: var(--clickable-text);
+	mask: url(/assets/img/chevron.svg);
+	-webkit-mask-image: url(/assets/img/chevron.svg);
+	mask-position: center;
+	mask-size: 24px;
+	mask-repeat: no-repeat;
 	display: inline-block;
 	transition: transform 250ms ease-in-out;
 
@@ -494,7 +511,7 @@ hr {
 	width: 100%;
 	height: var(--slider-height);
 	margin: calc(0.7rem + (var(--slider-thumb-height) - var(--slider-height)) * 0.5) 0;
-	background-color: var(--clickable);
+	background-color: var(--slider-bg);
 	position: relative;
 	border-radius: calc(var(--slider-height) * 0.5);
 	-webkit-user-drag: none;
@@ -502,7 +519,7 @@ hr {
 .slider .thumb {
 	width: var(--slider-thumb-height);
 	height: var(--slider-thumb-height);
-	background-color: var(--clickable);
+	background-color: var(--slider-thumb);
 	box-shadow: 0 0 4px black;
 	cursor: pointer;
     position: absolute;
@@ -511,10 +528,18 @@ hr {
 	-webkit-user-drag: none;
 }
 .slider .progress {
-	background-color: var(--topbar);
+	background-color: var(--slider-progress);
 	height: var(--slider-height);
 	border-radius: calc(var(--slider-height) * 0.5) 0 0 calc(var(--slider-height) * 0.5);
 	-webkit-user-drag: none;
+}
+.zoomSlider {
+	width: 12%;
+    margin: 0 12px;
+	position: absolute;
+	top: calc(0.7rem + (var(--slider-thumb-height) - var(--slider-height)) - 10px);
+	right: calc(1.75rem + 24px);
+	--slider-progress: #34a4ff;
 }
 
 .tooltip {
