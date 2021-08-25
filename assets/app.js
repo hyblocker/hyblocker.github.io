@@ -212,7 +212,7 @@ function buildPropertyEditor(prop) {
 			TypeClass = "backgroundColor";
 			const colorPickerContainer = Solito.createElement("div", ["container"], {style:`background-color: ${prop.defaultValue}`});
 			control = Solito.createElement("div", ["colorPicker"], null, (function(e) {
-				const layer = createLayer("colorPickerPopout");
+				const layer = createLayer(["colorPickerPopout"]);
 				layer.setAttribute("acp-color", prop.value);
 				layer.style.position = "absolute";
 				layer.style.top = e.clientY;
