@@ -104,7 +104,7 @@ window.addEventListener('load', function() {
 	
 			// Setup theme props
 			_this.themeName.innerText = currentTheme.manifest.name;
-			document.title = currentTheme.manifest.name + " | Theme Editor";
+			document.title = currentTheme.manifest.name + " | Theme Editor (Early Access)";
 			injectTheme(currentTheme.requiredImports + "\n" + currentTheme.requiredCSS, "theme-base");
 			setupThemeCategories(currentTheme, _this.themeScroller);
 			buildCss();
