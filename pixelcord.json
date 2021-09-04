@@ -151,7 +151,7 @@
 				"max": "16",
 				"unit": "px",
 				"prop": "--blur-strength",
-				"selector": ".callContainer-36WRfH,\n.theme-dark",
+				"selector": ":root",
 				"dependsOn": [ "transparency" ]
 			}
 		],

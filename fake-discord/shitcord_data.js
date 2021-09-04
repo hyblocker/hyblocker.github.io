@@ -1,5 +1,4 @@
-
-const classes = {
+shitcord._classes = {
 	App_Root: "appMount-3lHmkl",
 
 	Layer_Container: "layerContainer-yqaFcK",
@@ -35,14 +34,22 @@ const classes = {
 	MemberUsername: "name-uJV0GL",
 	MemberStatus: "activity-2Gy-9S",
 
-	GuildScroller: "wrapper-3NnKdC",
-	DmRoot: "opacity: 1; height: 56px; transform: scale(1);",
+	GuildScrollerRoot: "guilds-1SWlCJ",
+	GuildScroller: "scroller-1Bvpku",
+	DmItem: "opacity: 1; height: 56px; transform: scale(1);",
 	GuildItem: "listItem-GuPuDH",
+	GuildPill: "pill-1z4sAY",
 	GuildSeparator: "guildSeparator-33mFX6",
 	GuildItemWrapper: "wrapper-1BJsBx",
 	GuildItemAvatar: "icon-27yU2q",
+	HomeItem: "tutorialContainer-2sGCg9",
+	CreateServerItem: "tutorialContainer-30WoTp",
+	GuildSvg: "svg-1X37T1",
+	GuildWrapperSimple: "wrapperSimple-19ogV2",
 
 	GuildItemSelected: "selected-bZ3Lue",
-}
 
-shitcord._classes = classes;
+	// Colors
+	Danger: "hsl(359, calc(var(--saturation-factor, 1) * 82.6%), 59.4%)",
+	Online: "hsl(139, calc(var(--saturation-factor, 1) * 47.3%), 43.9%)",
+}

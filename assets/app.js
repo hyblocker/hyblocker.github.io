@@ -173,13 +173,14 @@ window.addEventListener('load', function() {
 
 				// Splash file is from an external endpoint, so we have to wait for it to get loaded
 				// Also code fork ew
+				// TODO: splash file
 
 				if (currentTheme.splash != undefined) {
 
 					const splashFileName = currentTheme.splash.split('/').pop().split('#')[0].split('?')[0];
 
 					load(repos[selectedId].themeUrl, function (themeData) {
-						zip.file(`${currentTheme.manifest.name}/${splashFileName}`, themeData);
+						zip.file(`${currentTheme.manifest.name}/${currentTheme.file}`, themeData);
 
 						zip.generateAsync({type:"blob"}).then(function(blob) {
 							saveAs(blob, `${currentTheme.manifest.name}.zip`);

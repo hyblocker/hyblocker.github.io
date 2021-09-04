@@ -11,7 +11,25 @@ var Status = {
 	Idle: 1,
 	DoNotDisturb: 2,
 	Offline: 3,
+	Streaming: 4,
 };
+var IconTop = {
+	None: 0,
+	VoiceChat: 1,
+	Screenshare: 2,
+	Stagehouse: 3,
+};
+var Colors = {
+	Green: 0,
+	Yellow: 1,
+	Red: 2,
+};
+var TooltipDirection = {
+	Top: 0,
+	Bottom: 1,
+	Left: 2,
+	Right: 3,
+}
 
 // SUB ENUM.UTILS
 
@@ -77,6 +95,10 @@ window.getGuild = function(id) {
 		if (window.shitcord.guilds[i].id == id)
 			return window.shitcord.guilds[i];
 }
+function GuildFolder(color, ...guilds) {
+	this.color = color;
+	this.guilds = guilds;
+}
 
 // SECTION CHANNELS
 
@@ -104,4 +126,11 @@ window.createLayer = function(backdrop, layer) {
 	layerContainer.appendChild(layer);
 
 	return layer;
+}
+
+// https://stackoverflow.com/questions/105034/how-to-create-a-guid-uuid
+function genUuid() {
+	return ([1e7]+-1e3+-4e3+-8e3+-1e11).replace(/[018]/g, c =>
+		(c ^ crypto.getRandomValues(new Uint8Array(1))[0] & 15 >> c / 4).toString(16)
+	);
 }

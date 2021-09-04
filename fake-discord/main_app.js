@@ -2,18 +2,13 @@ const KEY_ESCAPE = 27;
 
 // loader
 window.addEventListener("DOMContentLoaded", function() {
-	loadJS('/fake-discord/shitcord_data.js');
-	loadJS('/fake-discord/members.js');
-	loadJS('/fake-discord/guild_mock.js');
-	loadJS('/fake-discord/tooltip.js');
 
-	scrollMessagesToBottom();
+	scrollMessagesToBottom();	
+	cacheComponents();
 
-	initShitcord();
-
-	document.body.appendChild( Solito.createElement("div", ["modal"], null, 
-		Solito.createElement("span", ["penis"], null, null)
-	) );
+	// Functionality
+	membersList();
+	constructGuildsSlider();
 
 });
 
@@ -48,6 +43,21 @@ function handleVisibilityChange() {
 		document.documentElement.classList.add("app-focused");
 	}
 }
+
+function cacheComponents() {
+	
+	// Cache components
+	window.shitcord.components = {};
+	const componentsRoot = document.getElementById("components");
+
+	for (let i = 0; i < componentsRoot.children.length; i++) {
+		console.log(componentsRoot.children[i].id);
+		window.shitcord.components[componentsRoot.children[i].id] = componentsRoot.children[i].cloneNode(true);
+	}
+	
+	componentsRoot.remove();
+	console.log(window.shitcord.components);
+}
   
 document.addEventListener("visibilitychange", handleVisibilityChange, false);
 
@@ -65,7 +75,7 @@ initShitcord = function() {
 				id= "1",
 				username= "Hyblocker",
 				discriminator="6869",
-				avatarURLBase="346338830011596800/a_06c70d50b822c9fc9864d798389d2b4a",
+				avatarURLBase="346338830011596800/d740df0c81f9d54e110fa80433db76b4",
 				animated=true,
 				status=Status.DoNotDisturb,
 				aboutMe="Lorem ipsum sit dolor amet",
@@ -89,8 +99,19 @@ initShitcord = function() {
 				discriminator="7626",
 				avatarURLBase="",
 				animated=false,
-				status=Status.DoNotDisturb,
+				status=Status.Online,
 				aboutMe="Hello!",
+				roles=[0],
+				bot=true,
+			),
+			new User(
+				id= "4",
+				username= "Giren",
+				discriminator="9461",
+				avatarURLBase="492134292634337295/b914a1d6f1b6fb5b5373a09793febe9f",
+				animated=false,
+				status=Status.Online,
+				aboutMe="We do a little trolling\nGoat at R6 and Valorant \n\n:small_red_triangle:https://shiro.is\n:small_red_triangle_down:https://beta.crunchyroll.com/!",
 				roles=[0],
 				bot=true,
 			),
@@ -100,7 +121,16 @@ initShitcord = function() {
 				id=1,
 				displayName="lol",
 				icon=undefined,
+				pings=0,
+				iconTop=IconTop.None,
+				iconTopColor=Colors.Danger,
 			),
 		]
 	};
+
+	window.shitcord.getComponent = function(name) {
+		return shitcord.components[name].children[0].cloneNode(true);
+	}
 }
+
+initShitcord();

@@ -165,6 +165,8 @@ Solito.createSlider = function(min, max, value, onChange, floatingDigits) {
 
 		// Reposition the tooltip
 		tooltip.style.left = e.clientX - tooltip.clientWidth / 2 + thumb.clientWidth / 2;
+
+		// TODO: force into viewport
 		tooltip.style.top = root.getBoundingClientRect().top + thumb.clientHeight;
 	});
 
