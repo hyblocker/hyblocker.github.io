@@ -9,9 +9,6 @@ constructGuildsSlider = function() {
 	const GuildSeparator = GuildScroller.getElementsByClassName(shitcord._classes.GuildSeparator)[0].parentNode;
 	const ServersRoot = GuildScroller.querySelectorAll('[aria-label="Servers"]')[0];
 
-	console.log(ServersRoot)
-	// console.log(GuildScroller)
-
 	// const newGuild = genGuild(false, "hekker's other shithole", "https://cdn.discordapp.com/icons/327997395650740225/a_1bdd318305d597ce877241a7df8b7d77.webp?size=128");
 	const home = genGuild("home", false, "Home", shitcord.getComponent("guildHomeIcon"), false, 1);
 
@@ -24,7 +21,7 @@ constructGuildsSlider = function() {
 	
 	// Guilds
 
-	// yeet first 3 guilds
+	// yeet first 3 guilds for now ; once folders work just clear
 	ServersRoot.children[0].remove();
 	ServersRoot.children[0].remove();
 	ServersRoot.children[0].remove();
@@ -50,13 +47,13 @@ dmSticky = function(id, selected, label, icon, unread, pings, iconTop, iconTopCo
 
 // Add Server btn (+)
 addServerButton = function() {
-	return genGuild();
+	return genGuild("create-join-button", false, "Add a Server", null);
 
 }
 
 // Server Discovery
 serverDiscovery = function() {
-	return genGuild();
+	return genGuild("guild-discover-button", false, "Explore Public Servers", null);
 }
 
 // Add guild
@@ -190,10 +187,12 @@ genGuild = function(id, selected, label, icon, unread, pings, iconTop, iconTopCo
 		if (selected) {
 			wrapperItem.classList.add(shitcord._classes.GuildItemSelected);
 			
-			const pos = newGuildObject.getBoundingClientRect();
-			const compStyle = getComputedStyle(newGuildObject);
-			
-			tooltip = window.createTooltip(label, pos.x + parseFloat(compStyle.width) + 8, pos.y + 9, TooltipDirection.Right);
+			if (tooltip == null) {
+				const pos = newGuildObject.getBoundingClientRect();
+				const compStyle = getComputedStyle(newGuildObject);
+				tooltip = window.createTooltip(label, pos.x + parseFloat(compStyle.width) + 8, pos.y + 9, TooltipDirection.Right);
+			}
+
 			// maskBlob.animate({d: maskBaseSelected}, 1000, mina.easeinout);
 			maskBlob.node.setAttribute("d", maskBaseSelected);
 		} else if (!isSelected) {

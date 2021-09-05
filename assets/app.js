@@ -109,6 +109,12 @@ window.addEventListener('load', function() {
 			injectTheme(currentTheme.requiredImports + "\n" + currentTheme.requiredCSS, "theme-base");
 			setupThemeCategories(currentTheme, _this.themeScroller);
 			buildCss();
+			
+			// Scroll to bottom
+			let timer = setInterval(() => {
+				iframe.contentWindow.scrollMessagesToBottom();
+				clearInterval(timer);
+			}, 1000)
 		});
 
 		// Add zoom slider
@@ -123,11 +129,6 @@ window.addEventListener('load', function() {
 		document.getElementsByClassName("header")[0].appendChild(magnifyingGlass);
 		document.getElementsByClassName("header")[0].appendChild(Solito.createElement("div", ["sliderContainer", "zoomSlider"], null, null, zoomSlider));
 
-		const somePromise = new Promise((resolve, reject) => {
-			setTimeout(null, 10000);
-		}).then(
-			iframe.contentWindow.scrollMessagesToBottom()
-		);
 	});
 
 	document.getElementsByClassName("preview")[0].appendChild(iframe);

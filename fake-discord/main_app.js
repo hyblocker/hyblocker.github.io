@@ -9,7 +9,19 @@ window.addEventListener("DOMContentLoaded", function() {
 	// Functionality
 	membersList();
 	constructGuildsSlider();
+	fixTextbox();
 
+	// Load a theme if we can
+	const urlParams = new URLSearchParams(window.location.search);
+	const file = urlParams.get("file");
+	if (file != null) {
+		load(file, function (cssToInject) {
+			const headTag = document.head;
+			const cssTag = Solito.createElement("style", [id], {type: "text/css"});
+			cssTag.innerHTML = cssToInject;
+			headTag.appendChild(cssTag);
+		});
+	}
 });
 
 // keyboard handler 

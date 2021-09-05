@@ -8,7 +8,7 @@
 			"label": "Build JS",
 			"type": "shell",
 			"group": "build",
-			"command": "Get-ChildItem assets/api.js,fake-discord/shitcord_api.js,fake-discord/main_app.js,fake-discord/shitcord_data.js,fake-discord/members.js,fake-discord/guild_mock.js,fake-discord/tooltip.js | Get-Content | Out-File assets/shitcord.js",
+			"command": "Get-ChildItem assets/api.js,fake-discord/shitcord_api.js,fake-discord/main_app.js,fake-discord/shitcord_data.js,fake-discord/members.js,fake-discord/guild_mock.js,fake-discord/tooltip.js,fake-discord/textbox.js | Get-Content | Out-File assets/shitcord.js",
 			"problemMatcher": [
 				"$node-sass"
 			]

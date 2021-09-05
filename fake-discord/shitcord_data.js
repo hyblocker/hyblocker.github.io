@@ -49,6 +49,10 @@ shitcord._classes = {
 
 	GuildItemSelected: "selected-bZ3Lue",
 
+	// Textbox
+	TextboxRoot: "textArea-12jD-V",
+	TextboxPlaceholder: "placeholder-37qJjk",
+
 	// Colors
 	Danger: "hsl(359, calc(var(--saturation-factor, 1) * 82.6%), 59.4%)",
 	Online: "hsl(139, calc(var(--saturation-factor, 1) * 47.3%), 43.9%)",
